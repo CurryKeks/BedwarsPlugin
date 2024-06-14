@@ -1,0 +1,7 @@
+name: BedwarsPlugin
+version: '${project.version}'
+main: me.currycookie.BedwarsPlugin
+api-version: '1.20'
+commands:
+    createvoid:
+      description: Creates a void :)
