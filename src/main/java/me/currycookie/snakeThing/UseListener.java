@@ -1,4 +1,4 @@
-package me.currycookie.listeners;
+package me.currycookie.snakeThing;
 
 import me.currycookie.BedwarsPlugin;
 import org.bukkit.Material;

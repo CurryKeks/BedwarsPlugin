@@ -1,12 +1,9 @@
-package me.currycookie.builders;
+package me.currycookie.snakeThing;
 
 import me.currycookie.BedwarsPlugin;
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.World;
 import org.bukkit.entity.FallingBlock;
-import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
