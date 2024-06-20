@@ -16,19 +16,21 @@ import java.util.ArrayList;
 
 public class PreGameHandler {
 
+
     private ArrayList<Player> activePlayers;
-    private EventManager eventManager;
     private boolean countdown = false, playerLeft = false;
+    private EventManager eventManager;
     private int counter = 60;
+
     public PreGameHandler() {
         Bukkit.getOnlinePlayers().stream().forEach(player -> {
             this.activePlayers.add(player);
         });
         serialize();
-
     }
+
     private void serialize() {
-        eventManager = new EventManager() {
+        this.eventManager = new EventManager() {
             @EventHandler
             public void blockbreak(BlockBreakEvent event) {
                 event.setCancelled(true);
@@ -89,6 +91,7 @@ public class PreGameHandler {
                             player.setLevel(0);
                         });
                         BedwarsPlugin.getInstance().getServerHandler().startMainGamePhase();
+                        eventManager = null;
                         super.cancel();
                         break;
                     }

@@ -2,7 +2,7 @@ package me.currycookie;
 
 import me.currycookie.commands.CreateVoidCMD;
 import me.currycookie.handler.ServerHandler;
-import me.currycookie.libs.BedwarsType;
+import me.currycookie.enums.BedwarsType;
 import me.currycookie.snakeThing.SnakeBuilder;
 import me.currycookie.snakeThing.UseListener;
 import org.bukkit.Bukkit;
