@@ -23,7 +23,8 @@ public class PreGameHandler {
     private int counter = 60;
 
     public PreGameHandler() {
-        Bukkit.getOnlinePlayers().stream().forEach(player -> {
+        activePlayers = new ArrayList<>();
+        Bukkit.getOnlinePlayers().forEach(player -> {
             this.activePlayers.add(player);
         });
         serialize();

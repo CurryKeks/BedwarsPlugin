@@ -44,7 +44,7 @@ public class UseListener implements Listener {
                     Vector direction = player.getLocation().getDirection();
                     int amount = 120;
                     for (int i = 0; i < amount; i++) {
-                        BedwarsPlugin.snakeBuilder.buildSnake(player.getLocation().setDirection(direction.rotateAroundY(360.0/amount)), 50);
+                        BedwarsPlugin.snakeBuilder.buildSnake(player.getLocation().setDirection(direction.rotateAroundY(360.0/amount)), 50, false);
                     }
                 }
             }

@@ -9,7 +9,7 @@ import org.bukkit.util.Vector;
 
 public class SnakeBuilder {
 
-    public void buildSnake(Location location, int size) {
+    public void buildSnake(Location location, int size, boolean spawnFallingBlocks) {
 //        Bukkit.broadcastMessage(location.getDirection().toString());
         Vector direction = location.getDirection();
 
@@ -32,17 +32,20 @@ public class SnakeBuilder {
                     if (tempLocation.getBlock().getType() != Material.AIR && tempLocation.getBlock().getType() != Material.GLASS) {
                         collided = true;
                     } else {
+
                         tempLocation.getBlock().setType(Material.GLASS);
                     }
 
                 } else if (i < size*2) {
                     if (location.getWorld().getBlockAt(oldBlockLocations[i-size]).getType() == Material.GLASS) {
                         location.getWorld().getBlockAt(oldBlockLocations[i-size]).setType(Material.AIR);
-                        FallingBlock fallingBlock = oldBlockLocations[i-size].getWorld().spawnFallingBlock(location.clone().add(direction.clone().multiply(i-size)), Material.GLASS.createBlockData());
-                        fallingBlock.setCancelDrop(true);
-                        fallingBlock.setGlowing(true);
-                        fallingBlock.setDamagePerBlock(20000);
-                        fallingBlock.setGravity(true);
+                        if (spawnFallingBlocks) {
+                            FallingBlock fallingBlock = oldBlockLocations[i-size].getWorld().spawnFallingBlock(location.clone().add(direction.clone().multiply(i-size)), Material.GLASS.createBlockData());
+                            fallingBlock.setCancelDrop(true);
+                            fallingBlock.setGlowing(true);
+                            fallingBlock.setDamagePerBlock(20000);
+                            fallingBlock.setGravity(true);
+                        }
                     }
                 } else {
                     super.cancel();
